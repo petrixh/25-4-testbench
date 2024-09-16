@@ -17,8 +17,8 @@ import com.vaadin.flow.server.auth.AnonymousAllowed;
 @AnonymousAllowed
 public class HelloWorldView extends HorizontalLayout {
 
-    private TextField name;
-    private Button sayHello;
+    protected TextField name;
+    protected Button sayHello;
 
     public HelloWorldView() {
         name = new TextField("Your name");
