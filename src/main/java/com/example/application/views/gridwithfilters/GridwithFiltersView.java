@@ -108,6 +108,7 @@ public class GridwithFiltersView extends Div {
 
             // Action buttons
             Button resetBtn = new Button("Reset");
+            resetBtn.setId("reset-button");
             resetBtn.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
             resetBtn.addClickListener(e -> {
                 name.clear();
@@ -119,6 +120,7 @@ public class GridwithFiltersView extends Div {
                 onSearch.run();
             });
             Button searchBtn = new Button("Search");
+            searchBtn.setId("search-button");
             searchBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
             searchBtn.addClickListener(e -> onSearch.run());
 

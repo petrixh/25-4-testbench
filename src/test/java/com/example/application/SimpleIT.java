@@ -25,7 +25,7 @@ public class SimpleIT extends BrowserTestBase {
     public void clickButton() {
         // Find the first button (<vaadin-button>) on the page
         ButtonElement button = $(ButtonElement.class).first();
-
+ 
         // Click it
         button.click();
 

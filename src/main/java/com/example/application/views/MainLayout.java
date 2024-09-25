@@ -126,6 +126,7 @@ public class MainLayout extends AppLayout {
             layout.add(userMenu);
         } else {
             Anchor loginLink = new Anchor("login", "Sign in");
+            loginLink.setId("login-link");
             layout.add(loginLink);
         }
 
