@@ -12,6 +12,19 @@ http://localhost:8080 in your browser.
 You can also import the project to your IDE of choice as you would with any
 Maven project. Read more on [how to import Vaadin projects to different IDEs](https://vaadin.com/docs/latest/guide/step-by-step/importing) (Eclipse, IntelliJ IDEA, NetBeans, and VS Code).
 
+## Running the tests
+The main branch includes two simple tests: 
+
+A UI Unit test
+``` HelloWorldViewTest.java ```
+
+and a browser test: 
+```SimpleIT.java```
+
+To run the UI unit test, simply run it from the ide or run ```./mvnw test ```
+
+To run the browser test, make sure the application is running first, then run the test from your IDE. This could also be configured to be part of the Maven lifecycle using the Surefire plugin or failsafe plugin for instance... 
+
 ## Deploying to Production
 
 To create a production build, call `mvnw clean package -Pproduction` (Windows),
