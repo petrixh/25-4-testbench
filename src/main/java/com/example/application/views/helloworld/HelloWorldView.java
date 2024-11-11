@@ -13,7 +13,6 @@ import com.vaadin.flow.server.auth.AnonymousAllowed;
 
 @PageTitle("Hello World")
 @Route(value = "", layout = MainLayout.class)
-@RouteAlias(value = "", layout = MainLayout.class)
 @AnonymousAllowed
 public class HelloWorldView extends HorizontalLayout {
 
