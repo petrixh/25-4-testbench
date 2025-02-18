@@ -2,9 +2,13 @@ name: Maven Build and Run Tests
 
 on:
   push:
-    branches: [ "main" ]
+    branches: 
+      - main
+      - page-objects
   pull_request:
-    branches: [ "main" ]
+    branches: 
+      - main
+      - page-objects
 
 jobs:
   build:
@@ -24,7 +28,7 @@ jobs:
          VAADIN_OFFLINE_KEY: ${{ secrets.VAADIN_PRODMODE_CI_SERVER_KEY }}
       run: mvn -B clean package -Pproduction --file pom.xml -DskipTests
 
-    #- name: Run unit tests
+    #- name: Run unit tests only
     #  env:
     #     VAADIN_OFFLINE_KEY: ${{ secrets.VAADIN_PRODMODE_CI_SERVER_KEY }}
     #  run: mvn -B verify -Pproduction --file pom.xml
