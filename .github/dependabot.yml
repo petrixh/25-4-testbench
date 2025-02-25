@@ -9,8 +9,6 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
-    reviewers:
-      - ${{ secrets.DEPENDABOT_PR_REVIEWERS }}
     groups:
       minor-and-patch-updates:
         patterns:
