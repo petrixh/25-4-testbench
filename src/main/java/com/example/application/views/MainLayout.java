@@ -24,8 +24,9 @@ import com.vaadin.flow.component.sidenav.SideNavItem;
 import com.vaadin.flow.router.AfterNavigationEvent;
 import com.vaadin.flow.router.AfterNavigationObserver;
 import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.server.StreamResource;
 import com.vaadin.flow.server.auth.AccessAnnotationChecker;
+import com.vaadin.flow.server.streams.DownloadHandler;
+import com.vaadin.flow.server.streams.DownloadResponse;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 import java.io.ByteArrayInputStream;
@@ -105,9 +106,16 @@ public class MainLayout extends AppLayout implements AfterNavigationObserver {
             User user = maybeUser.get();
 
             Avatar avatar = new Avatar(user.getName());
-            StreamResource resource = new StreamResource("profile-pic",
-                    () -> new ByteArrayInputStream(user.getProfilePicture()));
-            avatar.setImageResource(resource);
+            byte[] profilePicture = user.getProfilePicture();
+            DownloadHandler imageHandler = DownloadHandler.fromInputStream(event ->
+                    new DownloadResponse(
+                            new ByteArrayInputStream(profilePicture),
+                            "profile-pic.png",
+                            "image/png",
+                            profilePicture.length
+                    )
+            );
+            avatar.setImageHandler(imageHandler);
             avatar.setThemeName("xsmall");
             avatar.getElement().setAttribute("tabindex", "-1");
 
