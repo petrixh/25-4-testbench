@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Vaadin 24.9 + Spring Boot 3.5 web application demonstrating TestBench testing patterns. It uses Java 17, Spring Data JPA with H2 in-memory database, and Spring Security for authentication.
+This is a Vaadin 25 + Spring Boot 4 web application demonstrating TestBench testing patterns. It uses Java 21, Spring Data JPA with H2 in-memory database, and Spring Security for authentication.
 
 ## Build Commands
 
