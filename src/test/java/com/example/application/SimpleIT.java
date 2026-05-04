@@ -24,7 +24,7 @@ public class SimpleIT extends BrowserTestBase {
     @BrowserTest
     public void clickButton() {
         // Find the first button (<vaadin-button>) on the page
-        ButtonElement button = $(ButtonElement.class).first();
+        ButtonElement button = $(ButtonElement.class).single();
  
         // Click it
         button.click();
@@ -36,11 +36,11 @@ public class SimpleIT extends BrowserTestBase {
     @BrowserTest
     public void fillInAndClickButton() {
 
-        TextFieldElement textField = $(TextFieldElement.class).first();
+        TextFieldElement textField = $(TextFieldElement.class).single();
         textField.setValue("John Doe");
 
         // Find the first button (<vaadin-button>) on the page
-        ButtonElement button = $(ButtonElement.class).first();
+        ButtonElement button = $(ButtonElement.class).single();
 
         // Click it
         button.click();
@@ -50,7 +50,7 @@ public class SimpleIT extends BrowserTestBase {
 
         waitUntil(ExpectedConditions.presenceOfElementLocated(By.tagName("vaadin-notification")));
         // Assert that a notification with the correct message is shown
-        NotificationElement notificationElement = $(NotificationElement.class).first(); 
+        NotificationElement notificationElement = $(NotificationElement.class).single(); 
         //Assertions.assertTrue(notificationElement.isDisplayed());
         Assertions.assertEquals("Hello John Doe", notificationElement.getText());
 

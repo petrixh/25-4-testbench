@@ -22,7 +22,7 @@ public class GridWithFiltersPO extends AbstractBrowserDriverTestBase {
 
         // Not strictly necessary here, but we can do scoped searches as well...
         WebElement filterLayoutComponent = getDriver().findElement(By.className("filter-layout"));
-        TextFieldElement filterLayoutFirstTF = $(TextFieldElement.class).context(filterLayoutComponent).withCaption("Name").first();
+        TextFieldElement filterLayoutFirstTF = $(TextFieldElement.class).context(filterLayoutComponent).withCaption("Name").single();
         if(name != null){
             filterLayoutFirstTF.setValue(name);
         }
@@ -36,7 +36,7 @@ public class GridWithFiltersPO extends AbstractBrowserDriverTestBase {
 
             // Or rely on us always wanting the first/last/n-th one... which is not a good
             // idea in general
-            ComboBoxElement occupationCombo = $(ComboBoxElement.class).first();
+            ComboBoxElement occupationCombo = $(ComboBoxElement.class).single();
             occupationCombo.openPopup();
             for (String item : occupation) {
                 occupationCombo.selectByText(item);
@@ -58,11 +58,11 @@ public class GridWithFiltersPO extends AbstractBrowserDriverTestBase {
     }
 
     public int getGridRowCount() {
-        return $(GridElement.class).first().getRowCount();
+        return $(GridElement.class).single().getRowCount();
     }
 
     public String getTextOnGridRowAndCol(int row, int col) {
-        return $(GridElement.class).first().getCell(row,col).getText();
+        return $(GridElement.class).single().getCell(row,col).getText();
     }
 
 }

@@ -3,7 +3,7 @@ package com.example.application.views.login;
 import org.openqa.selenium.WebDriver;
 
 import com.example.application.NavigationPO;
-import com.vaadin.flow.component.login.testbench.LoginFormElement;
+import com.vaadin.flow.component.login.testbench.LoginOverlayElement;
 import com.vaadin.testbench.AbstractBrowserDriverTestBase;
 
 public class LoginFormPO extends AbstractBrowserDriverTestBase{
@@ -16,10 +16,10 @@ public class LoginFormPO extends AbstractBrowserDriverTestBase{
     }
 
     public NavigationPO login(String username, String password) {
-        LoginFormElement loginForm = $(LoginFormElement.class).first(); 
-        loginForm.getUsernameField().setValue(username);
-        loginForm.getPasswordField().setValue(password);
-        loginForm.getSubmitButton().click();
+        LoginOverlayElement loginOverlay = $(LoginOverlayElement.class).single();
+        loginOverlay.getUsernameField().setValue(username);
+        loginOverlay.getPasswordField().setValue(password);
+        loginOverlay.getSubmitButton().click();
 
         return new NavigationPO(getDriver());
 
