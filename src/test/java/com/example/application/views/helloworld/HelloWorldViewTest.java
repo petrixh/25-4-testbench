@@ -4,11 +4,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.vaadin.browserless.SpringBrowserlessTest;
 import com.vaadin.flow.component.notification.Notification;
-import com.vaadin.testbench.unit.SpringUIUnitTest;
 
 @SpringBootTest
-public class HelloWorldViewTest extends SpringUIUnitTest {
+public class HelloWorldViewTest extends SpringBrowserlessTest {
 
     @Test
     public void setText_clickButton_notificationIsShown() {
@@ -21,7 +21,7 @@ public class HelloWorldViewTest extends SpringUIUnitTest {
 
         // Notification isn't referenced in the view so we need to use the component
         // query API to find the notification that opened
-        Notification notification = $(Notification.class).first();
+        Notification notification = $(Notification.class).single();
         Assertions.assertEquals("Hello Test", test(notification).getText());
     }
 
