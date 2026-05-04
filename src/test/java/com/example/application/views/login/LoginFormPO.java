@@ -16,7 +16,7 @@ public class LoginFormPO extends AbstractBrowserDriverTestBase{
     }
 
     public NavigationPO login(String username, String password) {
-        LoginOverlayElement loginOverlay = $(LoginOverlayElement.class).first();
+        LoginOverlayElement loginOverlay = $(LoginOverlayElement.class).single();
         loginOverlay.getUsernameField().setValue(username);
         loginOverlay.getPasswordField().setValue(password);
         loginOverlay.getSubmitButton().click();
